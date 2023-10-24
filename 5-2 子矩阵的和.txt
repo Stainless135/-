@@ -1,0 +1,25 @@
+#include <iostream> 
+#include <algorithm>
+#define N 1010
+using namespace std;
+
+int a[N][N],b[N][N];
+
+int main()
+{
+	int n,m,q;
+	cin >> n >>m >> q;
+	for(int i = 1;i <= n;i++)
+		for(int j = 1;j <= m ;j++)
+		 cin >> a[i][j];
+	for(int i = 1;i <= n;i++) 
+		for(int j = 1;j <= m ;j++)
+			b[i][j]=b[i-1][j]+b[i][j-1]-b[i-1][j-1]+a[i][j];
+	while(q--)
+	{
+		int i,j,k,l;
+		cin >> i >> j >> k >> l;
+		int t=b[k][l]-b[i-1][l]-b[k][j-1]+b[i-1][j-1];
+		cout<< t <<endl;
+	} 
+}
