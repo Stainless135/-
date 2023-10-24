@@ -1,0 +1,22 @@
+#include <iostream>
+#include <algorithm>
+#define N 100010
+using namespace std;
+int a[N],b[N];
+int n;
+int main()
+{
+	cin >> n;
+	int res = 0;
+	for(int j = 0, k = 0; k < n; k++) 
+	{
+		cin >> a[k];
+		b[a[k]]++;
+		while(b[a[k]]>1) --b[a[j++]];
+		res = max(res, k - j + 1);
+	}
+
+	cout << res;
+
+	return 0;
+}
